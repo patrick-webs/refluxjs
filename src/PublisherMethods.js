@@ -61,9 +61,8 @@ module.exports = {
 
         promise.then(function(response) {
             return me.completed(response);
-        });
-        // IE compatibility - catch is a reserved word - without bracket notation source compilation will fail under IE
-        promise["catch"](function(error) {
+        })["catch"](function(error) {
+            // IE compatibility - catch is a reserved word - without bracket notation source compilation will fail under IE
             return me.failed(error);
         });
     },
